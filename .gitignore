@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+# raw and derived scan data stay out of this repository
+*.las
+*.fjdata
+*.npz
+*.npy
+DX/USD/config/placement_final.json
