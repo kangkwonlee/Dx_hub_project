@@ -34,7 +34,10 @@ place.append(('Chair6', -5.01, 15.385, 180.0, 'user: legs y 15.17..15.60, back o
 place.append(('FireExtinguisher', -0.90, 5.35, 90.0, 'red points'))
 place.append(('FireExtinguisher', -4.53, 18.43, 90.0, 'user: arc x -4.62, y 18.33 at the wall end'))
 # blob 28: top 1.15 x 1.74 m -> Desk6 along y; blob 31 table
-place.append(('Desk6', -3.57, 14.50, 90.0, 'top y 13.63..15.37'))
+# two 100 x 60 cm desks joined (user, 2026-11-03); the 100 cm side faces the robot's start spot. Scan top x -4.0..-3.0, y 13.9..15.1, legs y 13.95, 14.5, 15.1
+DESK6_SCAN_SCALE = (0.60 / 1.80, 1.00 / 0.80, 1.0)
+place.append(('Desk6', -3.50, 14.20, 90.0, 'south desk, y 13.9..14.5'))
+place.append(('Desk6', -3.50, 14.80, 90.0, 'north desk, y 14.5..15.1'))
 place.append(('OfficeDesk', -3.17, 16.93, 0.0, 'label 31'))
 # blob 35: labelled chairs, but both scans show a flat 1.41 x 1.30 m top at desk height -> two desks back to back
 place.append(('OfficeDesk', -1.45, 14.94, 0.0, 'top x -2.15..-0.74 y 13.94..15.24'))
@@ -99,6 +102,20 @@ for desk, (nx_, ny_) in OFFICE_MOVES.items():
     cx_, cy_ = round(chair['pos'][0] + dx_, 3), round(chair['pos'][1] + dy_, 3)
     stage.OverridePrim(chair['path']).GetAttribute('xformOp:translate').Set(Gf.Vec3d(cx_, cy_, 0.0))
     log.append(['move', chair['path'].split('/')[-1], 'OfficeChair', cx_, cy_, chair['yaw'], 'with its desk'])
+# long table row (user's tape 2026-11-03: 80 x 180 cm, top edge to counter wall 218.5 cm; today's lidar legs x -3.70/-2.93, y 5.70..11.05):
+# the modelled row sat 39 cm west and 22.5 cm north. Chairs follow the 3D scan's chair backs (x -3.87 / -2.85).
+for n_ in (1, 2):
+    UsdGeom.Xformable(stage.OverridePrim(f'{HALL}/Scan_Desk6_{n_}')).AddScaleOp().Set(Gf.Vec3f(*DESK6_SCAN_SCALE))
+TABLE_DX, TABLE_DY, CHAIR_W_DX, CHAIR_E_DX = 0.39, -0.225, 0.584, 0.096
+for n_, i_ in by_name.items():
+    if n_.startswith('Desk6_') and i_['room'] == 'Hall':
+        nx_, ny_ = i_['pos'][0] + TABLE_DX, i_['pos'][1] + TABLE_DY
+    elif n_.startswith('Chair6_') and i_['room'] == 'Hall' and n_[-2] in 'WE':
+        nx_, ny_ = i_['pos'][0] + (CHAIR_W_DX if n_[-2] == 'W' else CHAIR_E_DX), i_['pos'][1] + TABLE_DY
+    else:
+        continue
+    stage.OverridePrim(i_['path']).GetAttribute('xformOp:translate').Set(Gf.Vec3d(round(nx_, 3), round(ny_, 3), 0.0))
+    log.append(['move', n_, i_['asset'][:-5], round(nx_, 3), round(ny_, 3), i_['yaw'], 'tape + lidar'])
 for rest in pool.values():
     for path in rest:
         stage.OverridePrim(path).SetActive(False)
@@ -150,6 +167,10 @@ import drawer_chest  # noqa: E402
 drawer_chest.add(stage, HALL)
 log.append(['add', 'Scan_DrawerChest_1', 'DrawerChest', -7.63, 17.86, 0.0, 'box on the slices'])
 log.append(['add', 'Scan_DrawerChest_2', 'DrawerChest', -4.755, 19.01, 0.0, 'box on the slices'])
+# counter top overhang (user's tape, 2026-11-03), see counter_top.py
+import counter_top  # noqa: E402
+counter_top.add(stage, HALL)
+log.append(['add', 'Scan_CounterTop_1', 'CounterTop', -0.3, 7.95, 0.0, '90 cm tape, scan extent'])
 # wall display on the diagonal wall (user, 2026-11-02), see wall_tv.py
 import wall_tv  # noqa: E402
 wall_tv.add(stage, HALL)

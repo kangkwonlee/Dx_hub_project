@@ -9,6 +9,7 @@ import sys
 import numpy as np
 
 TRUNC = 0.04
+STOOL_HEIGHT = 0.41  # user's tape, 2026-11-03 (the scan read 0.42-0.44)
 # table by the diagonal wall; stools: by the wall, then the rows by the south window
 TABLE_START = (-4.0, -2.43)
 STOOL_START = [(-3.57, -2.18), (-11.0, 0.58), (-10.52, 0.58), (-10.03, 0.58)]
@@ -133,7 +134,7 @@ def add(stage, hall, data):
     for n, s in enumerate(data['stools'], 1):
         root = f'{hall}/Scan_RoundStool_{n}'
         UsdGeom.Xform.Define(stage, root).AddTranslateOp().Set(Gf.Vec3d(s['x'], s['y'], 0.0))
-        r, h = s['r'], s['top']
+        r, h = s['r'], STOOL_HEIGHT
         fabric = material(f'Fabric_{n}', np.clip(np.array(s['rgb']) * 1.2, 0, 1), 0.85)
         revolve(f'{root}/feet', [(0.0, r - 0.06), (0.02, r - 0.06)], feet, False)
         revolve(f'{root}/body', [(0.02, r - 0.02), (0.04, r - 0.004), (0.07, r), (h - 0.05, r), (h - 0.03, r - 0.004), (h - 0.012, r - 0.016), (h - 0.003, r - 0.04), (h, r - 0.09)], fabric)

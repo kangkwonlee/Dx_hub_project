@@ -75,8 +75,6 @@ python place_final.py ../config ../config ../../../../P2-DX_project/DX/USD/DX_Hu
 
 `cyclo_lab`이 `~/Isaac/cyclo_lab`이 아닌 곳에 있으면 환경 변수 `CYCLO_LAB`으로 경로를 지정합니다.
 
-`scripts/`는 아직 이전 상태입니다. 줄자 실측으로 고친 테이블, 카운터, 스툴, 시작점 앞 책상은 USD에만 반영되어 있어서, 지금 스크립트로 다시 만들면 이전 배치가 나옵니다.
-
 ## 추가한 항목
 
 | 항목 | 수량 | 코드 |
@@ -93,6 +91,7 @@ python place_final.py ../config ../config ../../../../P2-DX_project/DX/USD/DX_Hu
 | 벽걸이 TV (스캔 기준 2.53×1.44 m) | 1 | `wall_tv.py` |
 | 펜던트 조명 | 27 | `pendant_lamps.py` |
 | 모니터 | 31 | `monitors.py` |
+| 카운터 상판 | 1 | `counter_top.py` |
 | 소화기, 사무용 책상·의자 등 기존 모델 | - | `place_final.py` |
 
 기존 가구 26개는 스캔에 맞춰 옮겼습니다.
