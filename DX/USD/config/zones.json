@@ -1,0 +1,1255 @@
+{
+ "note": "hub frame [m]; polygons counter-clockwise; status 추정 = not confirmed by the user",
+ "zones": [
+  {
+   "id": "robot_desk",
+   "name_ko": "로봇 책상",
+   "name_en": "Robot Desk",
+   "use": "SG2 작업 책상 (100×60cm 2개)",
+   "kind": "robot",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    -3.5,
+    14.5
+   ],
+   "polygon": [
+    [
+     -4.0,
+     13.9
+    ],
+    [
+     -3.0,
+     13.9
+    ],
+    [
+     -3.0,
+     15.1
+    ],
+    [
+     -4.0,
+     15.1
+    ]
+   ],
+   "label_at": [
+    -3.5,
+    12.95
+   ]
+  },
+  {
+   "id": "serving_wait",
+   "name_ko": "서빙로봇 대기",
+   "name_en": "Serving Robot Standby",
+   "use": "RBM-S100a 서빙로봇 대기 자리",
+   "kind": "robot",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    3.94,
+    -1.94
+   ],
+   "polygon": [
+    [
+     3.53,
+     -2.81
+    ],
+    [
+     4.35,
+     -2.81
+    ],
+    [
+     4.35,
+     -1.07
+    ],
+    [
+     3.53,
+     -1.07
+    ]
+   ]
+  },
+  {
+   "id": "main_entrance",
+   "name_ko": "출입구",
+   "name_en": "Main Entrance",
+   "use": "서빙로봇 대기 자리 앞 출입문 (C_CorridorEast Door_00, Door_01)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    5.42,
+    -2.92
+   ],
+   "polygon": [
+    [
+     4.92,
+     -4.32
+    ],
+    [
+     5.92,
+     -4.32
+    ],
+    [
+     5.92,
+     -1.52
+    ],
+    [
+     4.92,
+     -1.52
+    ]
+   ]
+  },
+  {
+   "id": "cube_storage",
+   "name_ko": "큐브 보관",
+   "name_en": "Cube Storage",
+   "use": "RGB 큐브 보관 자리 (로봇 책상 위)",
+   "kind": "storage",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    -3.5,
+    14.5
+   ],
+   "polygon": [
+    [
+     -4.0,
+     13.9
+    ],
+    [
+     -3.0,
+     13.9
+    ],
+    [
+     -3.0,
+     15.1
+    ],
+    [
+     -4.0,
+     15.1
+    ]
+   ],
+   "label_at": [
+    -3.5,
+    15.72
+   ],
+   "no_floor": true
+  },
+  {
+   "id": "room_entrance",
+   "name_ko": "방 입구",
+   "name_en": "Room Entrance",
+   "use": "방 출입문 (Door_00)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    3.75,
+    18.09
+   ],
+   "polygon": [
+    [
+     3.25,
+     17.24
+    ],
+    [
+     4.25,
+     17.24
+    ],
+    [
+     4.25,
+     18.94
+    ],
+    [
+     3.25,
+     18.94
+    ]
+   ]
+  },
+  {
+   "id": "server_room_entrance",
+   "name_ko": "서버실 입구",
+   "name_en": "Server Room Entrance",
+   "use": "서버실 출입문 (Door_01)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    6.1,
+    12.63
+   ],
+   "polygon": [
+    [
+     5.6,
+     11.73
+    ],
+    [
+     6.6,
+     11.73
+    ],
+    [
+     6.6,
+     13.53
+    ],
+    [
+     5.6,
+     13.53
+    ]
+   ]
+  },
+  {
+   "id": "smartboard_front",
+   "name_ko": "전자칠판 앞",
+   "name_en": "Smartboard Front",
+   "use": "전자칠판(이동식 스탠드) 앞 발표·시연 자리",
+   "kind": "display",
+   "status": "확인",
+   "label_h": 0.62,
+   "center": [
+    -4.31,
+    14.49
+   ],
+   "polygon": [
+    [
+     -4.61,
+     13.76
+    ],
+    [
+     -4.01,
+     13.76
+    ],
+    [
+     -4.01,
+     15.22
+    ],
+    [
+     -4.61,
+     15.22
+    ]
+   ],
+   "label_at": [
+    -6.4,
+    14.49
+   ]
+  },
+  {
+   "id": "seat_01",
+   "name_ko": "자리 1",
+   "name_en": "Seat 1",
+   "use": "연구원 자리. OfficeDesk_2",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -12.09,
+    19.75
+   ],
+   "polygon": [
+    [
+     -12.77,
+     19.06
+    ],
+    [
+     -11.42,
+     19.06
+    ],
+    [
+     -11.42,
+     20.45
+    ],
+    [
+     -12.77,
+     20.45
+    ]
+   ]
+  },
+  {
+   "id": "seat_02",
+   "name_ko": "자리 2",
+   "name_en": "Seat 2",
+   "use": "연구원 자리. OfficeDesk_4",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -10.64,
+    20.4
+   ],
+   "polygon": [
+    [
+     -11.31,
+     19.7
+    ],
+    [
+     -9.97,
+     19.7
+    ],
+    [
+     -9.97,
+     21.1
+    ],
+    [
+     -11.31,
+     21.1
+    ]
+   ]
+  },
+  {
+   "id": "seat_03",
+   "name_ko": "자리 3",
+   "name_en": "Seat 3",
+   "use": "연구원 자리. OfficeDesk_6",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -9.3,
+    20.4
+   ],
+   "polygon": [
+    [
+     -9.97,
+     19.7
+    ],
+    [
+     -8.63,
+     19.7
+    ],
+    [
+     -8.63,
+     21.1
+    ],
+    [
+     -9.97,
+     21.1
+    ]
+   ]
+  },
+  {
+   "id": "seat_04",
+   "name_ko": "자리 4",
+   "name_en": "Seat 4",
+   "use": "연구원 자리. OfficeDesk_8",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -7.9,
+    20.4
+   ],
+   "polygon": [
+    [
+     -8.57,
+     19.7
+    ],
+    [
+     -7.23,
+     19.7
+    ],
+    [
+     -7.23,
+     21.1
+    ],
+    [
+     -8.57,
+     21.1
+    ]
+   ]
+  },
+  {
+   "id": "seat_05",
+   "name_ko": "자리 5",
+   "name_en": "Seat 5",
+   "use": "연구원 자리. OfficeDesk_10",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -6.56,
+    20.4
+   ],
+   "polygon": [
+    [
+     -7.23,
+     19.7
+    ],
+    [
+     -5.89,
+     19.7
+    ],
+    [
+     -5.89,
+     21.1
+    ],
+    [
+     -7.23,
+     21.1
+    ]
+   ]
+  },
+  {
+   "id": "seat_06",
+   "name_ko": "자리 6",
+   "name_en": "Seat 6",
+   "use": "연구원 자리. OfficeDesk_11",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -5.23,
+    20.3
+   ],
+   "polygon": [
+    [
+     -5.9,
+     19.6
+    ],
+    [
+     -4.56,
+     19.6
+    ],
+    [
+     -4.56,
+     21.0
+    ],
+    [
+     -5.9,
+     21.0
+    ]
+   ]
+  },
+  {
+   "id": "seat_07",
+   "name_ko": "자리 7",
+   "name_en": "Seat 7",
+   "use": "연구원 자리. OfficeDesk_7",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -8.05,
+    18.88
+   ],
+   "polygon": [
+    [
+     -8.72,
+     18.18
+    ],
+    [
+     -7.38,
+     18.18
+    ],
+    [
+     -7.38,
+     19.58
+    ],
+    [
+     -8.72,
+     19.58
+    ]
+   ]
+  },
+  {
+   "id": "seat_08",
+   "name_ko": "자리 8",
+   "name_en": "Seat 8",
+   "use": "연구원 자리. OfficeDesk_9",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -6.71,
+    18.88
+   ],
+   "polygon": [
+    [
+     -7.38,
+     18.18
+    ],
+    [
+     -6.04,
+     18.18
+    ],
+    [
+     -6.04,
+     19.58
+    ],
+    [
+     -7.38,
+     19.58
+    ]
+   ]
+  },
+  {
+   "id": "seat_09",
+   "name_ko": "자리 9",
+   "name_en": "Seat 9",
+   "use": "빈 책상. OfficeDesk_1",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -12.09,
+    18.18
+   ],
+   "polygon": [
+    [
+     -12.77,
+     17.48
+    ],
+    [
+     -11.42,
+     17.48
+    ],
+    [
+     -11.42,
+     18.87
+    ],
+    [
+     -12.77,
+     18.87
+    ]
+   ]
+  },
+  {
+   "id": "seat_10",
+   "name_ko": "자리 10",
+   "name_en": "Seat 10",
+   "use": "연구원 자리. OfficeDesk_3",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -10.42,
+    18.18
+   ],
+   "polygon": [
+    [
+     -11.09,
+     17.48
+    ],
+    [
+     -9.75,
+     17.48
+    ],
+    [
+     -9.75,
+     18.88
+    ],
+    [
+     -11.09,
+     18.88
+    ]
+   ]
+  },
+  {
+   "id": "seat_11",
+   "name_ko": "자리 11",
+   "name_en": "Seat 11",
+   "use": "연구원 자리. OfficeDesk_5",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -9.08,
+    18.18
+   ],
+   "polygon": [
+    [
+     -9.75,
+     17.48
+    ],
+    [
+     -8.41,
+     17.48
+    ],
+    [
+     -8.41,
+     18.88
+    ],
+    [
+     -9.75,
+     18.88
+    ]
+   ]
+  },
+  {
+   "id": "seat_12",
+   "name_ko": "자리 12",
+   "name_en": "Seat 12",
+   "use": "연구원 자리. Scan_OfficeDesk_4",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -12.12,
+    16.9
+   ],
+   "polygon": [
+    [
+     -12.79,
+     16.2
+    ],
+    [
+     -11.45,
+     16.2
+    ],
+    [
+     -11.45,
+     17.6
+    ],
+    [
+     -12.79,
+     17.6
+    ]
+   ]
+  },
+  {
+   "id": "seat_13",
+   "name_ko": "자리 13",
+   "name_en": "Seat 13",
+   "use": "연구원 자리. Scan_OfficeDesk_6",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -10.31,
+    16.33
+   ],
+   "polygon": [
+    [
+     -11.12,
+     15.63
+    ],
+    [
+     -9.5,
+     15.63
+    ],
+    [
+     -9.5,
+     17.03
+    ],
+    [
+     -11.12,
+     17.03
+    ]
+   ]
+  },
+  {
+   "id": "seat_14",
+   "name_ko": "자리 14",
+   "name_en": "Seat 14",
+   "use": "연구원 자리. Scan_OfficeDesk_5",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -12.12,
+    15.27
+   ],
+   "polygon": [
+    [
+     -12.79,
+     14.57
+    ],
+    [
+     -11.45,
+     14.57
+    ],
+    [
+     -11.45,
+     15.97
+    ],
+    [
+     -12.79,
+     15.97
+    ]
+   ]
+  },
+  {
+   "id": "seat_15",
+   "name_ko": "자리 15",
+   "name_en": "Seat 15",
+   "use": "사람 미지정. Scan_OfficeDesk_2",
+   "kind": "seat",
+   "status": "미지정",
+   "label_h": 0.34,
+   "center": [
+    -1.43,
+    15.34
+   ],
+   "polygon": [
+    [
+     -2.15,
+     14.59
+    ],
+    [
+     -0.71,
+     14.59
+    ],
+    [
+     -0.71,
+     16.09
+    ],
+    [
+     -2.15,
+     16.09
+    ]
+   ]
+  },
+  {
+   "id": "seat_16",
+   "name_ko": "자리 16",
+   "name_en": "Seat 16",
+   "use": "사람 미지정. Scan_OfficeDesk_3",
+   "kind": "seat",
+   "status": "미지정",
+   "label_h": 0.34,
+   "center": [
+    -1.45,
+    13.92
+   ],
+   "polygon": [
+    [
+     -2.15,
+     13.25
+    ],
+    [
+     -0.75,
+     13.25
+    ],
+    [
+     -0.75,
+     14.59
+    ],
+    [
+     -2.15,
+     14.59
+    ]
+   ]
+  },
+  {
+   "id": "seat_17",
+   "name_ko": "자리 17",
+   "name_en": "Seat 17",
+   "use": "연구원 자리. Scan_OfficeDesk_6 맞은편",
+   "kind": "seat",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -8.76,
+    16.2
+   ],
+   "polygon": [
+    [
+     -9.22,
+     15.76
+    ],
+    [
+     -8.3,
+     15.76
+    ],
+    [
+     -8.3,
+     16.64
+    ],
+    [
+     -9.22,
+     16.64
+    ]
+   ]
+  },
+  {
+   "id": "sofa_1",
+   "name_ko": "소파 1",
+   "name_en": "Sofa 1",
+   "use": "홀 소파 자리 (Armchair_NW1, NW2)",
+   "kind": "sofa",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -10.78,
+    8.91
+   ],
+   "polygon": [
+    [
+     -11.15,
+     8.19
+    ],
+    [
+     -10.4,
+     8.19
+    ],
+    [
+     -10.4,
+     9.63
+    ],
+    [
+     -11.15,
+     9.63
+    ]
+   ]
+  },
+  {
+   "id": "sofa_2",
+   "name_ko": "소파 2",
+   "name_en": "Sofa 2",
+   "use": "홀 소파 자리 (Armchair_NE1, NE2)",
+   "kind": "sofa",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -8.12,
+    8.96
+   ],
+   "polygon": [
+    [
+     -8.5,
+     8.23
+    ],
+    [
+     -7.75,
+     8.23
+    ],
+    [
+     -7.75,
+     9.68
+    ],
+    [
+     -8.5,
+     9.68
+    ]
+   ]
+  },
+  {
+   "id": "sofa_3",
+   "name_ko": "소파 3",
+   "name_en": "Sofa 3",
+   "use": "홀 소파 자리 (Armchair_CW1, CW2)",
+   "kind": "sofa",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -10.73,
+    6.61
+   ],
+   "polygon": [
+    [
+     -11.11,
+     5.88
+    ],
+    [
+     -10.35,
+     5.88
+    ],
+    [
+     -10.35,
+     7.33
+    ],
+    [
+     -11.11,
+     7.33
+    ]
+   ]
+  },
+  {
+   "id": "sofa_4",
+   "name_ko": "소파 4",
+   "name_en": "Sofa 4",
+   "use": "홀 소파 자리 (Sofa3_C)",
+   "kind": "sofa",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -8.22,
+    6.58
+   ],
+   "polygon": [
+    [
+     -8.6,
+     5.71
+    ],
+    [
+     -7.85,
+     5.71
+    ],
+    [
+     -7.85,
+     7.46
+    ],
+    [
+     -8.6,
+     7.46
+    ]
+   ]
+  },
+  {
+   "id": "sofa_5",
+   "name_ko": "소파 5",
+   "name_en": "Sofa 5",
+   "use": "홀 소파 자리 (Armchair_SW1, SW2)",
+   "kind": "sofa",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -10.8,
+    3.71
+   ],
+   "polygon": [
+    [
+     -11.18,
+     2.98
+    ],
+    [
+     -10.43,
+     2.98
+    ],
+    [
+     -10.43,
+     4.43
+    ],
+    [
+     -11.18,
+     4.43
+    ]
+   ]
+  },
+  {
+   "id": "sofa_6",
+   "name_ko": "소파 6",
+   "name_en": "Sofa 6",
+   "use": "홀 소파 자리 (Armchair_SE1, SE2)",
+   "kind": "sofa",
+   "status": "확인",
+   "label_h": 0.34,
+   "center": [
+    -8.26,
+    3.68
+   ],
+   "polygon": [
+    [
+     -8.63,
+     2.95
+    ],
+    [
+     -7.88,
+     2.95
+    ],
+    [
+     -7.88,
+     4.4
+    ],
+    [
+     -8.63,
+     4.4
+    ]
+   ]
+  },
+  {
+   "id": "training_room_entrance",
+   "name_ko": "훈련실 입구",
+   "name_en": "Training Room Entrance",
+   "use": "훈련실 유리문 (D_GlassDoorCorridor Door_05)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    -3.66,
+    -6.83
+   ],
+   "polygon": [
+    [
+     -4.16,
+     -7.45
+    ],
+    [
+     -3.16,
+     -7.45
+    ],
+    [
+     -3.16,
+     -6.22
+    ],
+    [
+     -4.16,
+     -6.22
+    ]
+   ],
+   "label_at": [
+    -5.9,
+    -6.4
+   ]
+  },
+  {
+   "id": "education_room_entrance",
+   "name_ko": "교육실 입구",
+   "name_en": "Education Room Entrance",
+   "use": "교육실 유리문 (D_GlassDoorCorridor Door_04)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    -3.66,
+    -8.02
+   ],
+   "polygon": [
+    [
+     -4.16,
+     -8.55
+    ],
+    [
+     -3.16,
+     -8.55
+    ],
+    [
+     -3.16,
+     -7.49
+    ],
+    [
+     -4.16,
+     -7.49
+    ]
+   ],
+   "label_at": [
+    -5.9,
+    -8.2
+   ]
+  },
+  {
+   "id": "admin_room_entrance",
+   "name_ko": "행정실 입구",
+   "name_en": "Admin Office Entrance",
+   "use": "행정실 입구, 유리 칸막이 북쪽 끝 패널 없는 구간 (A_RoomPartition)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    -0.77,
+    -4.96
+   ],
+   "polygon": [
+    [
+     -1.27,
+     -5.53
+    ],
+    [
+     -0.27,
+     -5.53
+    ],
+    [
+     -0.27,
+     -4.4
+    ],
+    [
+     -1.27,
+     -4.4
+    ]
+   ],
+   "label_at": [
+    1.3,
+    -5.0
+   ]
+  },
+  {
+   "id": "professor_1_entrance",
+   "name_ko": "교수님 1 입구",
+   "name_en": "Professor 1 Entrance",
+   "use": "서쪽 유리문 2짝 (Glass/H_WestDoor)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    -7.54,
+    -14.12
+   ],
+   "polygon": [
+    [
+     -8.04,
+     -15.2
+    ],
+    [
+     -7.04,
+     -15.2
+    ],
+    [
+     -7.04,
+     -13.05
+    ],
+    [
+     -8.04,
+     -13.05
+    ]
+   ]
+  },
+  {
+   "id": "professor_2_entrance",
+   "name_ko": "교수님 2 입구",
+   "name_en": "Professor 2 Entrance",
+   "use": "남쪽 줄 왼쪽 유리문 (B_SouthRooms Door_02)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    -4.52,
+    -15.2
+   ],
+   "polygon": [
+    [
+     -4.97,
+     -15.7
+    ],
+    [
+     -4.07,
+     -15.7
+    ],
+    [
+     -4.07,
+     -14.7
+    ],
+    [
+     -4.97,
+     -14.7
+    ]
+   ],
+   "label_at": [
+    -4.52,
+    -14.3
+   ]
+  },
+  {
+   "id": "professor_3_entrance",
+   "name_ko": "교수님 3 입구",
+   "name_en": "Professor 3 Entrance",
+   "use": "남쪽 줄 오른쪽 유리문 (B_SouthRooms Door_05)",
+   "kind": "entrance",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    -0.67,
+    -15.2
+   ],
+   "polygon": [
+    [
+     -1.17,
+     -15.7
+    ],
+    [
+     -0.17,
+     -15.7
+    ],
+    [
+     -0.17,
+     -14.7
+    ],
+    [
+     -1.17,
+     -14.7
+    ]
+   ],
+   "label_at": [
+    -0.67,
+    -14.3
+   ]
+  },
+  {
+   "id": "coffee_entrance",
+   "name_ko": "커피 입구",
+   "name_en": "Coffee Entrance",
+   "use": "커피로봇 앞 통로. 범위는 표시 위치 기준 추정",
+   "kind": "entrance",
+   "status": "추정",
+   "label_h": 0.42,
+   "center": [
+    1.73,
+    13.7
+   ],
+   "polygon": [
+    [
+     0.35,
+     13.1
+    ],
+    [
+     3.1,
+     13.1
+    ],
+    [
+     3.1,
+     14.3
+    ],
+    [
+     0.35,
+     14.3
+    ]
+   ]
+  },
+  {
+   "id": "kitchen_entrance",
+   "name_ko": "주방 입구",
+   "name_en": "Kitchen Entrance",
+   "use": "쇼케이스와 냉장고 사이 통로. 범위는 표시 위치 기준 추정",
+   "kind": "entrance",
+   "status": "추정",
+   "label_h": 0.42,
+   "center": [
+    -0.23,
+    12.2
+   ],
+   "polygon": [
+    [
+     -0.75,
+     11.4
+    ],
+    [
+     0.3,
+     11.4
+    ],
+    [
+     0.3,
+     13.0
+    ],
+    [
+     -0.75,
+     13.0
+    ]
+   ],
+   "label_at": [
+    -1.44,
+    12.0
+   ]
+  },
+  {
+   "id": "kitchen_sink",
+   "name_ko": "싱크대",
+   "name_en": "Kitchen Sink",
+   "use": "주방 동쪽 카운터 싱크 2개 (Sink_1, Sink_2)",
+   "kind": "kitchen",
+   "status": "확인",
+   "label_h": 0.42,
+   "center": [
+    3.27,
+    7.53
+   ],
+   "polygon": [
+    [
+     2.94,
+     6.55
+    ],
+    [
+     3.6,
+     6.55
+    ],
+    [
+     3.6,
+     8.5
+    ],
+    [
+     2.94,
+     8.5
+    ]
+   ],
+   "label_at": [
+    1.9,
+    7.5
+   ]
+  }
+ ]
+}

@@ -170,6 +170,13 @@ log.append(['add', 'Scan_DrawerChest_2', 'DrawerChest', -4.755, 19.01, 0.0, 'box
 # counter top overhang (user's tape, 2026-11-03), see counter_top.py
 import counter_top  # noqa: E402
 counter_top.add(stage, HALL)
+# named zones, hidden here and shown by the control view, see zones.py
+import zones  # noqa: E402
+zone_counts = zones.add(stage, stage.GetDefaultPrim().GetPath().pathString, f'{work_b}/zones.json')
+print('zones placed', zone_counts)
+# south glass panels that are walls (user's marks 2026-11-05), see glass_walls.py
+import glass_walls  # noqa: E402
+print('glass to wall', glass_walls.add(stage, f'{stage.GetDefaultPrim().GetPath().pathString}/Building'))
 log.append(['add', 'Scan_CounterTop_1', 'CounterTop', -0.3, 7.95, 0.0, '90 cm tape, scan extent'])
 # wall display on the diagonal wall (user, 2026-11-02), see wall_tv.py
 import wall_tv  # noqa: E402
