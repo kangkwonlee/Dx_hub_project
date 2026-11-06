@@ -5,7 +5,7 @@
    "id": "robot_desk",
    "name_ko": "로봇 책상",
    "name_en": "Robot Desk",
-   "use": "SG2 작업 책상 (100×60cm 2개)",
+   "use": "SG2 작업 책상 (60×100 cm 2개, 높이 72.5 cm)",
    "kind": "robot",
    "status": "확인",
    "label_h": 0.62,
@@ -607,30 +607,30 @@
    "id": "seat_13",
    "name_ko": "자리 13",
    "name_en": "Seat 13",
-   "use": "연구원 자리. Scan_OfficeDesk_6",
+   "use": "연구원 자리. Scan_Desk6_3 (60×100 cm)",
    "kind": "seat",
    "status": "확인",
    "label_h": 0.34,
    "center": [
-    -10.31,
+    -10.46,
     16.33
    ],
    "polygon": [
     [
      -11.12,
-     15.63
+     15.82
     ],
     [
-     -9.5,
-     15.63
+     -9.8,
+     15.82
     ],
     [
-     -9.5,
-     17.03
+     -9.8,
+     16.84
     ],
     [
      -11.12,
-     17.03
+     16.84
     ]
    ]
   },
@@ -667,11 +667,11 @@
   },
   {
    "id": "seat_15",
-   "name_ko": "자리 15",
-   "name_en": "Seat 15",
-   "use": "사람 미지정. Scan_OfficeDesk_2",
+   "name_ko": "SkillForge 팀 1",
+   "name_en": "SkillForge Team 1",
+   "use": "SkillForge 팀 자리. Scan_OfficeDesk_2",
    "kind": "seat",
-   "status": "미지정",
+   "status": "확인",
    "label_h": 0.34,
    "center": [
     -1.43,
@@ -698,11 +698,11 @@
   },
   {
    "id": "seat_16",
-   "name_ko": "자리 16",
-   "name_en": "Seat 16",
-   "use": "사람 미지정. Scan_OfficeDesk_3",
+   "name_ko": "SkillForge 팀 2",
+   "name_en": "SkillForge Team 2",
+   "use": "SkillForge 팀 자리. Scan_OfficeDesk_3",
    "kind": "seat",
-   "status": "미지정",
+   "status": "확인",
    "label_h": 0.34,
    "center": [
     -1.45,
@@ -731,30 +731,30 @@
    "id": "seat_17",
    "name_ko": "자리 17",
    "name_en": "Seat 17",
-   "use": "연구원 자리. Scan_OfficeDesk_6 맞은편",
+   "use": "연구원 자리. Scan_Desk6_4 (60×100 cm)",
    "kind": "seat",
    "status": "확인",
    "label_h": 0.34,
    "center": [
-    -8.76,
-    16.2
+    -9.1,
+    16.32
    ],
    "polygon": [
     [
-     -9.22,
-     15.76
+     -9.8,
+     15.82
     ],
     [
-     -8.3,
-     15.76
+     -8.4,
+     15.82
     ],
     [
-     -8.3,
-     16.64
+     -8.4,
+     16.82
     ],
     [
-     -9.22,
-     16.64
+     -9.8,
+     16.82
     ]
    ]
   },

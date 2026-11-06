@@ -35,7 +35,8 @@ place.append(('FireExtinguisher', -0.90, 5.35, 90.0, 'red points'))
 place.append(('FireExtinguisher', -4.53, 18.43, 90.0, 'user: arc x -4.62, y 18.33 at the wall end'))
 # blob 28: top 1.15 x 1.74 m -> Desk6 along y; blob 31 table
 # two 100 x 60 cm desks joined (user, 2026-11-03); the 100 cm side faces the robot's start spot. Scan top x -4.0..-3.0, y 13.9..15.1, legs y 13.95, 14.5, 15.1
-DESK6_SCAN_SCALE = (0.60 / 1.80, 1.00 / 0.80, 1.0)
+DESK_TOP = 0.725  # user's tape 2026-11-06: robot desk and the two desks below are 60 x 100 cm, 72.5 cm high; Desk6 is 0.72 m
+DESK6_SCAN_SCALE = (0.60 / 1.80, 1.00 / 0.80, DESK_TOP / 0.72)
 place.append(('Desk6', -3.50, 14.20, 90.0, 'south desk, y 13.9..14.5'))
 place.append(('Desk6', -3.50, 14.80, 90.0, 'north desk, y 14.5..15.1'))
 place.append(('OfficeDesk', -3.17, 16.93, 0.0, 'label 31'))
@@ -49,8 +50,9 @@ place.append(('OfficeChair', -1.45, 13.62, 0.0, 'user: no scan points, centred o
 for dx, dy, dyaw, cx, cy, cyaw in ((-12.44, 16.90, -90.0, -11.82, 16.90, 90.0), (-12.44, 15.27, -90.0, -11.82, 15.27, 90.0)):
     place.append(('OfficeDesk', dx, dy, dyaw, 'scan top'))
     place.append(('OfficeChair', cx, cy, cyaw, 'scan seat / back'))
-# desk with a chair on each long side (user, 2026-11-02): long side along y; chairs measured, both facing the desk
-place.append(('OfficeDesk', -9.85, 16.33, 90.0, 'user: long side along y'))
+# two 60 x 100 cm desks side by side, one per person (user, 2026-11-06); scan top x -10.45..-9.15, y 15.8..16.8; chairs measured, both facing the desks
+place.append(('Desk6', -10.10, 16.32, 0.0, 'west desk, x -10.40..-9.80'))
+place.append(('Desk6', -9.50, 16.32, 0.0, 'east desk, x -9.80..-9.20'))
 place.append(('OfficeChair', -10.75, 16.50, -90.0, 'seat x -10.6, back x -11.07'))
 place.append(('OfficeChair', -8.77, 16.20, 90.0, 'seat and back, 11/02'))
 
@@ -104,7 +106,7 @@ for desk, (nx_, ny_) in OFFICE_MOVES.items():
     log.append(['move', chair['path'].split('/')[-1], 'OfficeChair', cx_, cy_, chair['yaw'], 'with its desk'])
 # long table row (user's tape 2026-11-03: 80 x 180 cm, top edge to counter wall 218.5 cm; today's lidar legs x -3.70/-2.93, y 5.70..11.05):
 # the modelled row sat 39 cm west and 22.5 cm north. Chairs follow the 3D scan's chair backs (x -3.87 / -2.85).
-for n_ in (1, 2):
+for n_ in (1, 2, 3, 4):
     UsdGeom.Xformable(stage.OverridePrim(f'{HALL}/Scan_Desk6_{n_}')).AddScaleOp().Set(Gf.Vec3f(*DESK6_SCAN_SCALE))
 TABLE_DX, TABLE_DY, CHAIR_W_DX, CHAIR_E_DX = 0.39, -0.225, 0.584, 0.096
 for n_, i_ in by_name.items():
@@ -116,6 +118,12 @@ for n_, i_ in by_name.items():
         continue
     stage.OverridePrim(i_['path']).GetAttribute('xformOp:translate').Set(Gf.Vec3d(round(nx_, 3), round(ny_, 3), 0.0))
     log.append(['move', n_, i_['asset'][:-5], round(nx_, 3), round(ny_, 3), i_['yaw'], 'tape + lidar'])
+# kitchen trash bins against the west wall of the coffee corner, between the fridge niche and the coffee robot (user, 2026-11-06)
+bin_ = stage.OverridePrim(f'{stage.GetDefaultPrim().GetPath()}/Furniture/Kitchen/TrashBin3')
+assert bin_.GetAttribute('xformOp:translate').IsValid()
+bin_.GetAttribute('xformOp:translate').Set(Gf.Vec3d(-0.285, 14.93, 0.0))
+bin_.GetAttribute('xformOp:rotateZ').Set(-90.0)
+log.append(['move', 'TrashBin3', 'TrashBin3', -0.285, 14.93, -90.0, 'user: west wall, x -0.51..-0.06, y 14.42..15.44'])
 for rest in pool.values():
     for path in rest:
         stage.OverridePrim(path).SetActive(False)
