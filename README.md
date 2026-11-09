@@ -93,6 +93,7 @@ python place_final.py ../config ../config ../../../../P2-DX_project/DX/USD/DX_Hu
 | 모니터 | 31 | `monitors.py` |
 | 카운터 상판 | 1 | `counter_top.py` |
 | 로봇 책상 칸막이 (스캔 기준 0.80×0.46 m, 두께 3 cm) | 1 | `desk_partition.py` |
+| 작업대 박스 / RGB 큐브 (작업대 실측 USD에서 복사, 로봇 쪽 = 북쪽 책상) | 2 / 6 | `desk_cube_set.py`, `config/workbench_v0.usda` |
 | 구역 이름과 바닥 범위 | 39 | `zones.py`, `config/zones.json` |
 | 유리 줄의 벽, 서쪽 유리문 | 3, 2 | `glass_walls.py` |
 | 소화기, 사무용 책상·의자 등 기존 모델 | - | `place_final.py` |

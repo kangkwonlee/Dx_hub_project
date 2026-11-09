@@ -183,6 +183,11 @@ import desk_partition  # noqa: E402
 desk_partition.add(stage, HALL, DESK_TOP)
 log.append(['add', 'Scan_DeskPartition_1', 'DeskPartition', round((desk_partition.X0 + desk_partition.X1) / 2, 3), desk_partition.Y, 0.0,
             f'0.80 x 0.03 m, desk top {DESK_TOP} to {desk_partition.Z1} m, scan points'])
+# bins and RGB cubes on the robot desk from the workbench prop (user, 2026-11-09), see desk_cube_set.py
+import desk_cube_set  # noqa: E402
+desk_cube_set.add(stage, HALL, DESK_TOP)
+log.append(['add', 'RobotDesk_CubeSet', 'workbench_v0 bins + cubes', desk_cube_set.X, desk_cube_set.Y, desk_cube_set.YAW,
+            'BoxA/B + 6 cubes, seat A (robot) on the north desk'])
 # named zones, hidden here and shown by the control view, see zones.py
 import zones  # noqa: E402
 zone_counts = zones.add(stage, stage.GetDefaultPrim().GetPath().pathString, f'{work_b}/zones.json')

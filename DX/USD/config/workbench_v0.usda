@@ -1,0 +1,601 @@
+#usda 1.0
+(
+    customLayerData = {
+        int desks_per_side = 1
+        string footprint_local_xy = "[[-0.5, -0.615], [0.5, 0.615]]"
+        string robot_poses_local = '{"robot_A": {"xy": [0.0, -0.855], "yaw_deg": 90.0}, "robot_B": {"xy": [0.0, 0.855], "yaw_deg": -90.0}}'
+        string spec_csv = "simulation/assets/props/workbench_measure_1007.csv"
+        string values_used = '{"책상/상판 가로": {"value": "100", "unit": "cm", "source": "measured"}, "책상/상판 세로": {"value": "60", "unit": "cm", "source": "measured"}, "책상/상판 윗면 높이(바닥에서)": {"value": "72", "unit": "cm", "source": "measured"}, "책상/상판 두께": {"value": "2", "unit": "cm", "source": "measured"}, "책상/다리 굵기": {"value": "5", "unit": "cm", "source": "measured"}, "책상/다리 안쪽 들여쓰기(상판 모서리에서)": {"value": "2.5", "unit": "cm", "source": "measured"}, "책상/다리 단면 모양(사각/원형)": {"value": "사각형", "unit": "", "source": "measured"}, "책상/개수": {"value": "2", "unit": "개", "source": "measured"}, "파티션/가로": {"value": "80", "unit": "cm", "source": "measured"}, "파티션/높이(바닥~꼭대기)": {"value": "120", "unit": "cm", "source": "measured"}, "파티션/두께": {"value": "3", "unit": "cm", "source": "measured"}, "파티션/바닥에서 뜬 높이": {"value": "5.5", "unit": "cm", "source": "measured"}, "파티션/두 책상 사이 위치(맞닿음/틈)": {"value": "0", "unit": "cm", "source": "measured"}, "박스/바깥 가로": {"value": "36", "unit": "cm", "source": "measured"}, "박스/바깥 세로": {"value": "26", "unit": "cm", "source": "measured"}, "박스/바깥 높이": {"value": "15", "unit": "cm", "source": "measured"}, "박스/벽 두께": {"value": "0.3", "unit": "cm", "source": "measured"}, "박스/책상 위 위치(상판 왼쪽 앞 모서리에서 x)": {"value": "53", "unit": "cm", "source": "measured"}, "박스/책상 위 위치(상판 왼쪽 앞 모서리에서 y)": {"value": "13", "unit": "cm", "source": "measured"}, "큐브/크기(정육면체 한 변)": {"value": "4.5", "unit": "cm", "source": "measured"}, "큐브/무게": {"value": "20", "unit": "g", "source": "assumed (measured: 모름)"}, "배치/로봇 베이스 앞면 ↔ 책상 앞 모서리 거리": {"value": "1.5", "unit": "cm", "source": "measured"}}'
+    }
+    defaultPrim = "Workbench"
+    doc = "DX Hub workbench props (two desks back to back, partition, bins, 4.5 cm cubes). v0 from the measurement sheet."
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Workbench"
+{
+    def "Looks"
+    {
+        def Material "DeskWhite"
+        {
+            token outputs:surface.connect = </Workbench/Looks/DeskWhite/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.9, 0.89, 0.86)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "LegWhite"
+        {
+            token outputs:surface.connect = </Workbench/Looks/LegWhite/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.93, 0.93, 0.92)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.4
+                token outputs:surface
+            }
+        }
+
+        def Material "PartitionFabric"
+        {
+            token outputs:surface.connect = </Workbench/Looks/PartitionFabric/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.62, 0.61, 0.56)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.9
+                token outputs:surface
+            }
+        }
+
+        def Material "PartitionFrame"
+        {
+            token outputs:surface.connect = </Workbench/Looks/PartitionFrame/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.94, 0.94, 0.93)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "BinClear"
+        {
+            token outputs:surface.connect = </Workbench/Looks/BinClear/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.92, 0.94, 0.95)
+                float inputs:ior = 1.45
+                float inputs:opacity = 0.35
+                float inputs:roughness = 0.15
+                token outputs:surface
+            }
+        }
+
+        def Material "CubeBlue"
+        {
+            token outputs:surface.connect = </Workbench/Looks/CubeBlue/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.08, 0.3, 0.9)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "CubeRed"
+        {
+            token outputs:surface.connect = </Workbench/Looks/CubeRed/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.85, 0.08, 0.08)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "CubeGreen"
+        {
+            token outputs:surface.connect = </Workbench/Looks/CubeGreen/S.outputs:surface>
+
+            def Shader "S"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.08, 0.55, 0.22)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "Physics" (
+            prepend apiSchemas = ["PhysicsMaterialAPI"]
+        )
+        {
+            float physics:dynamicFriction = 0.6
+            float physics:restitution = 0
+            float physics:staticFriction = 0.7
+        }
+    }
+
+    def Xform "DeskA1"
+    {
+        def Cube "Top" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/DeskWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (1, 0.6, 0.02)
+            double3 xformOp:translate = (0, -0.315, 0.71)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg0" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (-0.44999999999999996, -0.565, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg1" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (0.44999999999999996, -0.565, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg2" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (0.44999999999999996, -0.06500000000000003, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg3" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (-0.44999999999999996, -0.06500000000000003, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "DeskB1"
+    {
+        def Cube "Top" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/DeskWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (1, 0.6, 0.02)
+            double3 xformOp:translate = (0, 0.315, 0.71)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg0" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (-0.44999999999999996, 0.06500000000000003, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg1" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (0.44999999999999996, 0.06500000000000003, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg2" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (0.44999999999999996, 0.565, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Leg3" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/LegWhite>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.05, 0.05, 0.7)
+            double3 xformOp:translate = (-0.44999999999999996, 0.565, 0.35)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "Partition"
+    {
+        def Cube "Panel" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/PartitionFabric>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.8, 0.03, 1.145)
+            double3 xformOp:translate = (0, 0, 0.6275000000000001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Post0" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/PartitionFrame>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.02, 0.04, 1.2)
+            double3 xformOp:translate = (-0.41000000000000003, 0, 0.6)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Post1" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/PartitionFrame>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.02, 0.04, 1.2)
+            double3 xformOp:translate = (0.41000000000000003, 0, 0.6)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "TopRail" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/PartitionFrame>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.84, 0.04, 0.02)
+            double3 xformOp:translate = (0, 0, 1.19)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "BoxA" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        bool physics:kinematicEnabled = 1
+        float physics:mass = 0.6
+        float xformOp:rotateZ = 90
+        double3 xformOp:translate = (0.16000000000000003, -0.305, 0.721)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ"]
+
+        def Cube "Bottom" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.36, 0.26, 0.003)
+            double3 xformOp:translate = (0, 0, 0.0015)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall0" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.36, 0.003, 0.15)
+            double3 xformOp:translate = (0, -0.1285, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall1" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.36, 0.003, 0.15)
+            double3 xformOp:translate = (0, 0.1285, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall2" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.003, 0.26, 0.15)
+            double3 xformOp:translate = (-0.1785, 0, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall3" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.003, 0.26, 0.15)
+            double3 xformOp:translate = (0.1785, 0, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "BoxB" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        bool physics:kinematicEnabled = 1
+        float physics:mass = 0.6
+        float xformOp:rotateZ = 90
+        double3 xformOp:translate = (-0.16000000000000003, 0.305, 0.721)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ"]
+
+        def Cube "Bottom" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.36, 0.26, 0.003)
+            double3 xformOp:translate = (0, 0, 0.0015)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall0" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.36, 0.003, 0.15)
+            double3 xformOp:translate = (0, -0.1285, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall1" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.36, 0.003, 0.15)
+            double3 xformOp:translate = (0, 0.1285, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall2" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.003, 0.26, 0.15)
+            double3 xformOp:translate = (-0.1785, 0, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Wall3" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI"]
+        )
+        {
+            rel material:binding = </Workbench/Looks/BinClear>
+            rel material:binding:physics = </Workbench/Looks/Physics> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double size = 1
+            float3 xformOp:scale = (0.003, 0.26, 0.15)
+            double3 xformOp:translate = (0.1785, 0, 0.075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Cube "CubeA_blue" (
+        prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        rel material:binding = </Workbench/Looks/CubeBlue>
+        rel material:binding:physics = </Workbench/Looks/Physics> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physics:mass = 0.02
+        double size = 1
+        float3 xformOp:scale = (0.045, 0.045, 0.045)
+        double3 xformOp:translate = (-0.08000000000000002, -0.29500000000000004, 0.7434999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "CubeA_red" (
+        prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        rel material:binding = </Workbench/Looks/CubeRed>
+        rel material:binding:physics = </Workbench/Looks/Physics> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physics:mass = 0.02
+        double size = 1
+        float3 xformOp:scale = (0.045, 0.045, 0.045)
+        double3 xformOp:translate = (-0.29000000000000004, -0.245, 0.7434999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "CubeA_green" (
+        prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        rel material:binding = </Workbench/Looks/CubeGreen>
+        rel material:binding:physics = </Workbench/Looks/Physics> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physics:mass = 0.02
+        double size = 1
+        float3 xformOp:scale = (0.045, 0.045, 0.045)
+        double3 xformOp:translate = (-0.33999999999999997, -0.42000000000000004, 0.7434999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "CubeB_blue" (
+        prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        rel material:binding = </Workbench/Looks/CubeBlue>
+        rel material:binding:physics = </Workbench/Looks/Physics> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physics:mass = 0.02
+        double size = 1
+        float3 xformOp:scale = (0.045, 0.045, 0.045)
+        double3 xformOp:translate = (0.08000000000000002, 0.29500000000000004, 0.7434999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "CubeB_red" (
+        prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        rel material:binding = </Workbench/Looks/CubeRed>
+        rel material:binding:physics = </Workbench/Looks/Physics> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physics:mass = 0.02
+        double size = 1
+        float3 xformOp:scale = (0.045, 0.045, 0.045)
+        double3 xformOp:translate = (0.29000000000000004, 0.245, 0.7434999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "CubeB_green" (
+        prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        rel material:binding = </Workbench/Looks/CubeGreen>
+        rel material:binding:physics = </Workbench/Looks/Physics> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physics:mass = 0.02
+        double size = 1
+        float3 xformOp:scale = (0.045, 0.045, 0.045)
+        double3 xformOp:translate = (0.33999999999999997, 0.42000000000000004, 0.7434999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+}
+
