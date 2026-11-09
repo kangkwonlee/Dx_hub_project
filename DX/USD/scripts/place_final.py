@@ -178,6 +178,11 @@ log.append(['add', 'Scan_DrawerChest_2', 'DrawerChest', -4.755, 19.01, 0.0, 'box
 # counter top overhang (user's tape, 2026-11-03), see counter_top.py
 import counter_top  # noqa: E402
 counter_top.add(stage, HALL)
+# partition between the two robot desks (user, 2026-11-09), see desk_partition.py
+import desk_partition  # noqa: E402
+desk_partition.add(stage, HALL, DESK_TOP)
+log.append(['add', 'Scan_DeskPartition_1', 'DeskPartition', round((desk_partition.X0 + desk_partition.X1) / 2, 3), desk_partition.Y, 0.0,
+            f'0.80 x 0.03 m, desk top {DESK_TOP} to {desk_partition.Z1} m, scan points'])
 # named zones, hidden here and shown by the control view, see zones.py
 import zones  # noqa: E402
 zone_counts = zones.add(stage, stage.GetDefaultPrim().GetPath().pathString, f'{work_b}/zones.json')
